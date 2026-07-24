@@ -6,6 +6,8 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookCopyController;
 use App\Http\Controllers\BorrowingController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\MenuItemController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 // Public auth routes
@@ -35,8 +37,10 @@ Route::get('/inventory', [InventoryController::class, 'index']);
 Route::get('/inventory/{id}', [InventoryController::class, 'show']);
 Route::get('/inventory/{itemId}/logs', [InventoryController::class, 'logs']);
 Route::get('/inventory-logs', [InventoryController::class, 'logs']);
+Route::get('/menu', [MenuItemController::class, 'index']);
+Route::get('/menu/{id}', [MenuItemController::class, 'show']);
 
-// Management routes (no auth middleware for now - easy testing)
+// Management routes
 Route::post('/categories', [BookCategoryController::class, 'store']);
 Route::put('/categories/{id}', [BookCategoryController::class, 'update']);
 Route::delete('/categories/{id}', [BookCategoryController::class, 'destroy']);
@@ -50,3 +54,11 @@ Route::post('/inventory', [InventoryController::class, 'store']);
 Route::put('/inventory/{id}', [InventoryController::class, 'update']);
 Route::delete('/inventory/{id}', [InventoryController::class, 'destroy']);
 Route::post('/inventory/{id}/restock', [InventoryController::class, 'restock']);
+Route::post('/menu', [MenuItemController::class, 'store']);
+Route::put('/menu/{id}', [MenuItemController::class, 'update']);
+Route::delete('/menu/{id}', [MenuItemController::class, 'destroy']);
+Route::post('/orders', [OrderController::class, 'store']);
+Route::get('/orders', [OrderController::class, 'index']);
+Route::get('/orders/{id}', [OrderController::class, 'show']);
+Route::put('/orders/{id}', [OrderController::class, 'update']);
+Route::delete('/orders/{id}', [OrderController::class, 'destroy']);
