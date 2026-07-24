@@ -19,7 +19,7 @@ frontend/build/
 # Laravel
 backend/vendor/
 backend/node_modules/
-backend/.env
+# backend/.env - tracked for local dev
 backend/.env.backup
 backend/.env.production
 backend/storage/*.key
@@ -63,7 +63,7 @@ prisma/*.db
 Thumbs.db
 
 # New Directories
-/backend/
+# /backend/ - now tracked
 /design/
 /database/
 /api/
